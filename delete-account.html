@@ -19,6 +19,13 @@
 
         body {
             margin: 0;
+            min-height: 100vh;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             font-family:
                 "Segoe UI",
                 Tahoma,
@@ -28,16 +35,11 @@
             background:
                 linear-gradient(
                     145deg,
-                    #061a36 0%,
-                    #0b2d57 55%,
-                    #123f70 100%
+                    #061a36,
+                    #0b2d57,
+                    #123f70
                 );
 
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
             color: #172033;
         }
 
@@ -47,16 +49,18 @@
         }
 
         .card {
-            background: #ffffff;
+            background: #fff;
             border-radius: 28px;
             padding: 30px 25px;
+
             box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.25);
+                0 20px 60px rgba(0,0,0,.25);
         }
 
         .logo {
             width: 76px;
             height: 76px;
+
             margin: 0 auto 15px;
 
             border-radius: 22px;
@@ -68,138 +72,189 @@
             background: #0b2d57;
             color: #ff9f1c;
 
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 800;
         }
 
         h1 {
-            text-align: center;
             margin: 0 0 8px;
+
+            text-align: center;
+
             color: #0b2d57;
+
             font-size: 25px;
         }
 
         .subtitle {
             text-align: center;
+
             color: #667085;
+
             font-size: 14px;
             line-height: 1.8;
-            margin-bottom: 25px;
+
+            margin-bottom: 22px;
         }
 
         .warning {
+            padding: 15px;
+            margin-bottom: 20px;
+
             background: #fff4f4;
+
             border: 1px solid #ffd4d4;
+            border-radius: 16px;
+
             color: #a32929;
 
-            border-radius: 16px;
-            padding: 15px;
-
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.8;
+        }
+
+        .method-buttons {
+            display: grid;
+            gap: 10px;
 
             margin-bottom: 20px;
         }
 
-        .field {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 7px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px 15px;
-
-            border: 1px solid #d9dee7;
-            border-radius: 13px;
-
-            font-size: 15px;
-            outline: none;
-
-            transition: 0.2s;
-        }
-
-        input:focus {
-            border-color: #0b2d57;
-            box-shadow:
-                0 0 0 3px rgba(11, 45, 87, 0.08);
-        }
-
         button {
             width: 100%;
+
+            padding: 14px;
+
             border: none;
             border-radius: 14px;
-
-            padding: 15px;
 
             font-size: 15px;
             font-weight: 700;
 
             cursor: pointer;
 
-            transition: 0.2s;
+            transition: .2s;
         }
 
         button:disabled {
-            opacity: 0.65;
+            opacity: .6;
             cursor: not-allowed;
         }
 
-        .login-btn {
+        .google-btn {
+            background: #fff;
+            color: #344054;
+
+            border: 1px solid #d0d5dd;
+        }
+
+        .google-btn:hover:not(:disabled) {
+            background: #f9fafb;
+        }
+
+        .email-btn {
             background: #0b2d57;
-            color: white;
+            color: #fff;
         }
 
-        .login-btn:hover:not(:disabled) {
-            background: #092447;
-        }
-
-        .delete-btn {
-            background: #d92d20;
-            color: white;
-        }
-
-        .delete-btn:hover:not(:disabled) {
-            background: #b42318;
-        }
-
-        .cancel-btn {
-            margin-top: 10px;
+        .phone-btn {
             background: #f2f4f7;
             color: #344054;
         }
 
-        .message {
-            display: none;
-            margin-top: 15px;
+        .delete-btn {
+            background: #d92d20;
+            color: #fff;
+        }
 
-            border-radius: 13px;
-            padding: 13px;
+        .cancel-btn {
+            margin-top: 10px;
+
+            background: #f2f4f7;
+            color: #344054;
+        }
+
+        .field {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
 
             font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #d0d5dd;
+            border-radius: 13px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+        input:focus {
+            border-color: #0b2d57;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(11,45,87,.08);
+        }
+
+        .back-btn {
+            margin-bottom: 15px;
+
+            padding: 8px 0;
+
+            background: transparent;
+
+            color: #667085;
+
+            text-align: right;
+
+            font-size: 13px;
+        }
+
+        .message {
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 13px;
+
+            border-radius: 13px;
+
+            font-size: 13px;
             line-height: 1.7;
         }
 
         .error {
             background: #fff1f0;
-            color: #b42318;
+
             border: 1px solid #fecdca;
+
+            color: #b42318;
         }
 
         .success {
+            display: block;
+
             background: #ecfdf3;
-            color: #027a48;
+
             border: 1px solid #abefc6;
+
+            color: #027a48;
         }
 
-        /* Confirmation */
-
+        #emailSection,
+        #phoneSection,
+        #otpSection,
         #confirmSection,
         #loadingSection,
         #successSection {
@@ -232,9 +287,11 @@
             color: #039855;
         }
 
-        .confirm-text {
+        .center-text {
             text-align: center;
+
             color: #475467;
+
             font-size: 14px;
             line-height: 1.9;
 
@@ -242,22 +299,6 @@
         }
 
         /* Loading */
-
-        .loading-title {
-            text-align: center;
-            color: #0b2d57;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .loading-description {
-            text-align: center;
-            color: #667085;
-            font-size: 13px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
 
         .spinner {
             width: 58px;
@@ -270,7 +311,7 @@
 
             border-radius: 50%;
 
-            animation: spin 0.8s linear infinite;
+            animation: spin .8s linear infinite;
         }
 
         @keyframes spin {
@@ -279,37 +320,77 @@
             }
         }
 
+        .loading-title {
+            text-align: center;
+
+            color: #0b2d57;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+        .loading-description {
+            text-align: center;
+
+            color: #667085;
+
+            font-size: 13px;
+            line-height: 1.7;
+
+            margin-bottom: 22px;
+        }
+
         .progress {
-            background: #f2f4f7;
             height: 8px;
+
+            background: #f2f4f7;
+
             border-radius: 20px;
+
             overflow: hidden;
+
             margin-bottom: 20px;
         }
 
         .progress-bar {
             width: 10%;
             height: 100%;
+
             background: #ff9f1c;
+
             border-radius: 20px;
 
-            transition:
-                width 0.5s ease;
-        }
-
-        .steps {
-            margin-top: 10px;
+            transition: width .5s ease;
         }
 
         .step {
             display: flex;
             align-items: center;
+
             gap: 10px;
 
-            padding: 9px 0;
+            padding: 8px 0;
 
             color: #98a2b3;
+
             font-size: 13px;
+        }
+
+        .step-icon {
+            width: 24px;
+            height: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #f2f4f7;
+
+            flex-shrink: 0;
         }
 
         .step.active {
@@ -317,29 +398,13 @@
             font-weight: 600;
         }
 
-        .step.done {
-            color: #039855;
-        }
-
-        .step-icon {
-            width: 24px;
-            height: 24px;
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #f2f4f7;
-
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
         .step.active .step-icon {
             background: #fff4e5;
             color: #ff9f1c;
+        }
+
+        .step.done {
+            color: #039855;
         }
 
         .step.done .step-icon {
@@ -348,15 +413,13 @@
         }
 
         .footer {
-            text-align: center;
             margin-top: 18px;
 
-            color: rgba(255,255,255,0.75);
-            font-size: 12px;
-        }
+            text-align: center;
 
-        .hidden {
-            display: none !important;
+            color: rgba(255,255,255,.75);
+
+            font-size: 12px;
         }
     </style>
 </head>
@@ -365,258 +428,398 @@
 
 <div class="container">
 
-    <div class="card">
+<div class="card">
 
-        <!-- ================================================= -->
-        <!-- LOGIN -->
-        <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- LOGIN METHODS -->
+    <!-- ================================================= -->
 
-        <section id="loginSection">
+    <section id="loginSection">
 
-            <div class="logo">
-                و
-            </div>
+        <div class="logo">و</div>
 
-            <h1>حذف حساب وين</h1>
+        <h1>حذف حساب وين</h1>
 
-            <div class="subtitle">
-                استخدم بيانات تسجيل الدخول الخاصة بحسابك
-                للمتابعة إلى عملية حذف الحساب.
-            </div>
+        <div class="subtitle">
+            سجّل الدخول باستخدام الطريقة التي استخدمتها
+            عند إنشاء حسابك في وين.
+        </div>
 
-            <div class="warning">
-                <strong>تنبيه:</strong>
-                حذف الحساب عملية نهائية ولا يمكن التراجع عنها.
-                سيتم حذف بيانات حسابك والعقارات والمفضلة
-                والمراسلات والطلبات والبيانات المرتبطة بحسابك.
-            </div>
+        <div class="warning">
+            <strong>تنبيه:</strong>
+            حذف الحساب نهائي ولا يمكن التراجع عنه.
+            سيتم حذف بيانات الحساب والعقارات والمفضلة
+            والطلبات والمراسلات والبيانات المرتبطة به.
+        </div>
 
-            <div class="field">
-                <label for="email">
-                    البريد الإلكتروني
-                </label>
-
-                <input
-                    id="email"
-                    type="email"
-                    autocomplete="email"
-                    placeholder="example@email.com"
-                >
-            </div>
-
-            <div class="field">
-                <label for="password">
-                    كلمة المرور
-                </label>
-
-                <input
-                    id="password"
-                    type="password"
-                    autocomplete="current-password"
-                    placeholder="أدخل كلمة المرور"
-                >
-            </div>
+        <div class="method-buttons">
 
             <button
-                id="loginBtn"
-                class="login-btn"
-                onclick="login()"
+                id="googleBtn"
+                class="google-btn"
+                onclick="loginGoogle()"
             >
-                تسجيل الدخول والمتابعة
+                🔵 تسجيل الدخول باستخدام Google
             </button>
 
+            <button
+                class="email-btn"
+                onclick="showSection('emailSection')"
+            >
+                ✉️ الدخول بالبريد الإلكتروني
+            </button>
+
+            <button
+                class="phone-btn"
+                onclick="showSection('phoneSection')"
+            >
+                📱 الدخول برقم الهاتف
+            </button>
+
+        </div>
+
+        <div
+            id="loginError"
+            class="message error"
+        ></div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- EMAIL -->
+    <!-- ================================================= -->
+
+    <section id="emailSection">
+
+        <button
+            class="back-btn"
+            onclick="showSection('loginSection')"
+        >
+            ← طرق تسجيل الدخول
+        </button>
+
+        <h1>البريد الإلكتروني</h1>
+
+        <div class="subtitle">
+            أدخل البريد الإلكتروني وكلمة المرور.
+        </div>
+
+        <div class="field">
+
+            <label>
+                البريد الإلكتروني
+            </label>
+
+            <input
+                id="email"
+                type="email"
+                autocomplete="email"
+                placeholder="example@email.com"
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>
+                كلمة المرور
+            </label>
+
+            <input
+                id="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="كلمة المرور"
+            >
+
+        </div>
+
+        <button
+            id="emailLoginBtn"
+            class="email-btn"
+            onclick="loginEmail()"
+        >
+            تسجيل الدخول
+        </button>
+
+        <div
+            id="emailError"
+            class="message error"
+        ></div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PHONE -->
+    <!-- ================================================= -->
+
+    <section id="phoneSection">
+
+        <button
+            class="back-btn"
+            onclick="showSection('loginSection')"
+        >
+            ← طرق تسجيل الدخول
+        </button>
+
+        <h1>رقم الهاتف</h1>
+
+        <div class="subtitle">
+            أدخل رقم الهاتف المرتبط بحسابك.
+        </div>
+
+        <div class="field">
+
+            <label>
+                رقم الهاتف
+            </label>
+
+            <input
+                id="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="+249XXXXXXXXX"
+            >
+
+        </div>
+
+        <button
+            id="phoneBtn"
+            class="phone-btn"
+            onclick="sendPhoneOtp()"
+        >
+            إرسال رمز التحقق
+        </button>
+
+        <div
+            id="phoneError"
+            class="message error"
+        ></div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- OTP -->
+    <!-- ================================================= -->
+
+    <section id="otpSection">
+
+        <button
+            class="back-btn"
+            onclick="showSection('phoneSection')"
+        >
+            ← تغيير رقم الهاتف
+        </button>
+
+        <h1>رمز التحقق</h1>
+
+        <div class="subtitle">
+            أدخل رمز التحقق الذي وصلك على هاتفك.
+        </div>
+
+        <div class="field">
+
+            <label>
+                رمز التحقق
+            </label>
+
+            <input
+                id="otp"
+                type="text"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                maxlength="8"
+                placeholder="أدخل الرمز"
+            >
+
+        </div>
+
+        <button
+            id="otpBtn"
+            class="phone-btn"
+            onclick="verifyPhoneOtp()"
+        >
+            تأكيد الرمز
+        </button>
+
+        <div
+            id="otpError"
+            class="message error"
+        ></div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- CONFIRM -->
+    <!-- ================================================= -->
+
+    <section id="confirmSection">
+
+        <div class="confirm-icon">
+            !
+        </div>
+
+        <h1>
+            تأكيد حذف الحساب
+        </h1>
+
+        <div class="center-text">
+
+            أنت على وشك حذف حسابك نهائيًا.
+
+            <br><br>
+
+            سيتم حذف بياناتك الشخصية،
+            العقارات، المفضلة، الطلبات،
+            المراسلات والبيانات المرتبطة بالحساب.
+
+            <br><br>
+
+            <strong>
+                هذه العملية لا يمكن التراجع عنها.
+            </strong>
+
+        </div>
+
+        <button
+            id="deleteBtn"
+            class="delete-btn"
+            onclick="deleteAccount()"
+        >
+            تأكيد وحذف الحساب نهائيًا
+        </button>
+
+        <button
+            id="cancelBtn"
+            class="cancel-btn"
+            onclick="cancelDelete()"
+        >
+            إلغاء
+        </button>
+
+        <div
+            id="deleteError"
+            class="message error"
+        ></div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- LOADING -->
+    <!-- ================================================= -->
+
+    <section id="loadingSection">
+
+        <div class="spinner"></div>
+
+        <div
+            id="loadingTitle"
+            class="loading-title"
+        >
+            جارٍ حذف الحساب
+        </div>
+
+        <div
+            id="loadingDescription"
+            class="loading-description"
+        >
+            يرجى الانتظار وعدم إغلاق الصفحة.
+        </div>
+
+        <div class="progress">
+
             <div
-                id="loginError"
-                class="message error"
+                id="progressBar"
+                class="progress-bar"
             ></div>
 
-        </section>
+        </div>
+
+        <div class="step active" id="stepAuth">
+
+            <div class="step-icon">...</div>
+
+            <span>
+                التحقق من الحساب
+            </span>
+
+        </div>
+
+        <div class="step" id="stepData">
+
+            <div class="step-icon">2</div>
+
+            <span>
+                حذف بيانات الحساب
+            </span>
+
+        </div>
+
+        <div class="step" id="stepProperties">
+
+            <div class="step-icon">3</div>
+
+            <span>
+                حذف العقارات والبيانات المرتبطة
+            </span>
+
+        </div>
+
+        <div class="step" id="stepAuthDelete">
+
+            <div class="step-icon">4</div>
+
+            <span>
+                حذف حساب الدخول نهائيًا
+            </span>
+
+        </div>
+
+    </section>
 
 
-        <!-- ================================================= -->
-        <!-- CONFIRMATION -->
-        <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- SUCCESS -->
+    <!-- ================================================= -->
 
-        <section id="confirmSection">
+    <section id="successSection">
 
-            <div class="confirm-icon">
-                !
-            </div>
+        <div class="success-icon">
+            ✓
+        </div>
 
-            <h1>
-                هل أنت متأكد؟
-            </h1>
+        <h1>
+            تم حذف الحساب
+        </h1>
 
-            <div class="confirm-text">
+        <div class="center-text">
 
-                سيتم حذف حسابك نهائيًا من وين.
+            تم حذف حسابك وجميع بياناتك
+            من نظام وين بنجاح.
 
-                <br><br>
+            <br><br>
 
-                سيتم حذف بياناتك الشخصية والعقارات
-                والمفضلة والطلبات والمراسلات
-                والأجهزة المرتبطة بالحساب.
+            لم يعد بإمكانك تسجيل الدخول
+            باستخدام هذا الحساب.
 
-                <br><br>
+        </div>
 
-                <strong>
-                    لا يمكن التراجع عن هذه العملية بعد تنفيذها.
-                </strong>
+        <div class="message success">
+            تم تنفيذ طلب حذف الحساب بنجاح.
+        </div>
 
-            </div>
+    </section>
 
-            <button
-                id="deleteBtn"
-                class="delete-btn"
-                onclick="deleteAccount()"
-            >
-                تأكيد وحذف الحساب نهائيًا
-            </button>
+</div>
 
-            <button
-                id="cancelBtn"
-                class="cancel-btn"
-                onclick="cancelDelete()"
-            >
-                إلغاء
-            </button>
-
-            <div
-                id="deleteError"
-                class="message error"
-            ></div>
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- LOADING -->
-        <!-- ================================================= -->
-
-        <section id="loadingSection">
-
-            <div class="spinner"></div>
-
-            <div
-                id="loadingTitle"
-                class="loading-title"
-            >
-                جارٍ حذف الحساب
-            </div>
-
-            <div
-                id="loadingDescription"
-                class="loading-description"
-            >
-                يرجى الانتظار وعدم إغلاق الصفحة.
-            </div>
-
-            <div class="progress">
-                <div
-                    id="progressBar"
-                    class="progress-bar"
-                ></div>
-            </div>
-
-            <div class="steps">
-
-                <div
-                    id="stepAuth"
-                    class="step active"
-                >
-                    <div class="step-icon">
-                        ...
-                    </div>
-
-                    <span>
-                        التحقق من الحساب
-                    </span>
-                </div>
-
-
-                <div
-                    id="stepData"
-                    class="step"
-                >
-                    <div class="step-icon">
-                        2
-                    </div>
-
-                    <span>
-                        حذف بيانات الحساب
-                    </span>
-                </div>
-
-
-                <div
-                    id="stepProperties"
-                    class="step"
-                >
-                    <div class="step-icon">
-                        3
-                    </div>
-
-                    <span>
-                        حذف العقارات والبيانات المرتبطة
-                    </span>
-                </div>
-
-
-                <div
-                    id="stepAuthDelete"
-                    class="step"
-                >
-                    <div class="step-icon">
-                        4
-                    </div>
-
-                    <span>
-                        حذف حساب الدخول نهائيًا
-                    </span>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- SUCCESS -->
-        <!-- ================================================= -->
-
-        <section id="successSection">
-
-            <div class="success-icon">
-                ✓
-            </div>
-
-            <h1>
-                تم حذف الحساب
-            </h1>
-
-            <div class="confirm-text">
-
-                تم حذف حسابك وجميع بياناتك
-                من نظام وين بنجاح.
-
-                <br><br>
-
-                لم يعد بالإمكان تسجيل الدخول
-                باستخدام هذا الحساب.
-
-            </div>
-
-            <div class="message success" style="display:block;">
-                تم تنفيذ طلب حذف الحساب بنجاح.
-            </div>
-
-        </section>
-
-    </div>
-
-    <div class="footer">
-        © وين Wain — منصة العقارات
-    </div>
+<div class="footer">
+    © وين Wain — منصة العقارات
+</div>
 
 </div>
 
@@ -624,14 +827,14 @@
 <script>
 
     // ============================================================
-    // Supabase Configuration
+    // SUPABASE
     // ============================================================
 
     const SUPABASE_URL =
         "https://mhbajeqzcwgkqrgtceac.supabase.co";
 
     const SUPABASE_ANON_KEY =
-        "sb_publishable_ouDNoRcyPKhKmYYnMAoRSA_-Hg0ylUm";
+        "sb_publishable_ouDNoRcyPKKhMnYYnMAoRSA_-Hg0ylUm";
 
     const supabaseClient =
         window.supabase.createClient(
@@ -641,13 +844,16 @@
 
 
     // ============================================================
-    // UI Helpers
+    // SECTION
     // ============================================================
 
     function showSection(id) {
 
         const sections = [
             "loginSection",
+            "emailSection",
+            "phoneSection",
+            "otpSection",
             "confirmSection",
             "loadingSection",
             "successSection"
@@ -655,60 +861,95 @@
 
         sections.forEach(section => {
 
-            document
-                .getElementById(section)
+            document.getElementById(section)
                 .style.display =
-                    section === id
-                        ? "block"
-                        : "none";
+                section === id
+                    ? "block"
+                    : "none";
         });
     }
 
 
-    function showError(id, message) {
-
-        const element =
-            document.getElementById(id);
-
-        element.textContent = message;
-        element.style.display = "block";
-    }
-
-
-    function hideError(id) {
-
-        document
-            .getElementById(id)
-            .style.display = "none";
-    }
-
-
     // ============================================================
-    // Login
+    // GOOGLE LOGIN
     // ============================================================
 
-    async function login() {
+    async function loginGoogle() {
+
+        const button =
+            document.getElementById("googleBtn");
 
         hideError("loginError");
 
+        button.disabled = true;
+        button.textContent =
+            "جارٍ فتح تسجيل الدخول...";
+
+        try {
+
+            const {
+                error
+            } =
+                await supabaseClient.auth
+                    .signInWithOAuth({
+                        provider: "google",
+
+                        options: {
+                            redirectTo:
+                                window.location.href
+                        }
+                    });
+
+            if (error) {
+                throw error;
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Google login error:",
+                error
+            );
+
+            showError(
+                "loginError",
+                translateError(error.message)
+            );
+
+            button.disabled = false;
+
+            button.textContent =
+                "🔵 تسجيل الدخول باستخدام Google";
+        }
+    }
+
+
+    // ============================================================
+    // EMAIL LOGIN
+    // ============================================================
+
+    async function loginEmail() {
+
+        hideError("emailError");
+
         const email =
-            document
-                .getElementById("email")
+            document.getElementById("email")
                 .value
                 .trim();
 
         const password =
-            document
-                .getElementById("password")
+            document.getElementById("password")
                 .value;
 
         const button =
-            document.getElementById("loginBtn");
+            document.getElementById(
+                "emailLoginBtn"
+            );
 
         if (!email) {
 
             showError(
-                "loginError",
+                "emailError",
                 "يرجى إدخال البريد الإلكتروني."
             );
 
@@ -718,7 +959,7 @@
         if (!password) {
 
             showError(
-                "loginError",
+                "emailError",
                 "يرجى إدخال كلمة المرور."
             );
 
@@ -726,6 +967,7 @@
         }
 
         button.disabled = true;
+
         button.textContent =
             "جارٍ تسجيل الدخول...";
 
@@ -737,8 +979,168 @@
             } =
                 await supabaseClient.auth
                     .signInWithPassword({
-                        email: email,
-                        password: password
+                        email,
+                        password
+                    });
+
+            if (error) {
+                throw error;
+            }
+
+            if (!data.session) {
+                throw new Error(
+                    "تعذر إنشاء جلسة تسجيل الدخول."
+                );
+            }
+
+            showSection(
+                "confirmSection"
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Email login error:",
+                error
+            );
+
+            showError(
+                "emailError",
+                translateError(error.message)
+            );
+
+        } finally {
+
+            button.disabled = false;
+
+            button.textContent =
+                "تسجيل الدخول";
+        }
+    }
+
+
+    // ============================================================
+    // PHONE OTP
+    // ============================================================
+
+    async function sendPhoneOtp() {
+
+        hideError("phoneError");
+
+        const phone =
+            document.getElementById("phone")
+                .value
+                .trim();
+
+        const button =
+            document.getElementById(
+                "phoneBtn"
+            );
+
+        if (!phone) {
+
+            showError(
+                "phoneError",
+                "يرجى إدخال رقم الهاتف."
+            );
+
+            return;
+        }
+
+        button.disabled = true;
+
+        button.textContent =
+            "جارٍ إرسال الرمز...";
+
+        try {
+
+            const {
+                error
+            } =
+                await supabaseClient.auth
+                    .signInWithOtp({
+                        phone: phone
+                    });
+
+            if (error) {
+                throw error;
+            }
+
+            showSection(
+                "otpSection"
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Phone OTP error:",
+                error
+            );
+
+            showError(
+                "phoneError",
+                translateError(error.message)
+            );
+
+        } finally {
+
+            button.disabled = false;
+
+            button.textContent =
+                "إرسال رمز التحقق";
+        }
+    }
+
+
+    // ============================================================
+    // VERIFY PHONE OTP
+    // ============================================================
+
+    async function verifyPhoneOtp() {
+
+        hideError("otpError");
+
+        const phone =
+            document.getElementById("phone")
+                .value
+                .trim();
+
+        const token =
+            document.getElementById("otp")
+                .value
+                .trim();
+
+        const button =
+            document.getElementById(
+                "otpBtn"
+            );
+
+        if (!token) {
+
+            showError(
+                "otpError",
+                "يرجى إدخال رمز التحقق."
+            );
+
+            return;
+        }
+
+        button.disabled = true;
+
+        button.textContent =
+            "جارٍ التحقق...";
+
+        try {
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient.auth
+                    .verifyOtp({
+                        phone,
+                        token,
+                        type: "sms"
                     });
 
             if (error) {
@@ -752,20 +1154,20 @@
                 );
             }
 
-            showSection("confirmSection");
+            showSection(
+                "confirmSection"
+            );
 
         } catch (error) {
 
             console.error(
-                "Login error:",
+                "OTP verification error:",
                 error
             );
 
             showError(
-                "loginError",
-                translateError(
-                    error.message
-                )
+                "otpError",
+                translateError(error.message)
             );
 
         } finally {
@@ -773,25 +1175,13 @@
             button.disabled = false;
 
             button.textContent =
-                "تسجيل الدخول والمتابعة";
+                "تأكيد الرمز";
         }
     }
 
 
     // ============================================================
-    // Cancel
-    // ============================================================
-
-    async function cancelDelete() {
-
-        await supabaseClient.auth.signOut();
-
-        showSection("loginSection");
-    }
-
-
-    // ============================================================
-    // Delete Account
+    // DELETE ACCOUNT
     // ============================================================
 
     async function deleteAccount() {
@@ -799,29 +1189,31 @@
         hideError("deleteError");
 
         const deleteButton =
-            document.getElementById("deleteBtn");
+            document.getElementById(
+                "deleteBtn"
+            );
 
         const cancelButton =
-            document.getElementById("cancelBtn");
+            document.getElementById(
+                "cancelBtn"
+            );
 
         deleteButton.disabled = true;
         cancelButton.disabled = true;
 
-        showSection("loadingSection");
+        showSection(
+            "loadingSection"
+        );
 
         updateStep(
             "stepAuth",
             "active",
-            "جارٍ التحقق"
+            "..."
         );
 
         updateProgress(15);
 
         try {
-
-            // ----------------------------------------------------
-            // Get current session
-            // ----------------------------------------------------
 
             const {
                 data: {
@@ -834,7 +1226,7 @@
             if (!session) {
 
                 throw new Error(
-                    "انتهت جلسة تسجيل الدخول. يرجى تسجيل الدخول مرة أخرى."
+                    "انتهت جلسة تسجيل الدخول."
                 );
             }
 
@@ -854,12 +1246,8 @@
 
             setLoadingText(
                 "جارٍ حذف بيانات الحساب",
-                "يتم حذف البيانات الشخصية والطلبات والمفضلة والمراسلات."
+                "يتم حذف البيانات المرتبطة بحسابك."
             );
-
-            // ----------------------------------------------------
-            // Call Edge Function
-            // ----------------------------------------------------
 
             const {
                 data,
@@ -870,35 +1258,39 @@
                         "delete-account",
                         {
                             method: "POST",
+
                             headers: {
                                 Authorization:
                                     `Bearer ${session.access_token}`
                             },
+
                             body: {}
                         }
                     );
 
             if (error) {
-
-                console.error(
-                    "Edge Function error:",
-                    error
-                );
-
-                throw new Error(
-                    error.message ||
-                    "تعذر تنفيذ عملية حذف الحساب."
-                );
+                throw error;
             }
 
-            // ----------------------------------------------------
-            // Data deleted
-            // ----------------------------------------------------
+            if (!data || data.success !== true) {
+
+                throw new Error(
+                    data?.error ||
+                    "لم يتم تأكيد حذف الحساب."
+                );
+            }
 
             updateStep(
                 "stepData",
                 "done",
                 "✓"
+            );
+
+            updateProgress(55);
+
+            setLoadingText(
+                "حذف العقارات والبيانات المرتبطة",
+                "يتم إنهاء إزالة البيانات المرتبطة بالحساب."
             );
 
             updateStep(
@@ -910,8 +1302,8 @@
             updateProgress(75);
 
             setLoadingText(
-                "جارٍ إنهاء حذف الحساب",
-                "يتم حذف حساب تسجيل الدخول نهائيًا."
+                "حذف حساب الدخول",
+                "يتم حذف حساب المصادقة نهائيًا."
             );
 
             updateStep(
@@ -920,19 +1312,7 @@
                 "..."
             );
 
-            await delay(800);
-
-            // ----------------------------------------------------
-            // Validate server response
-            // ----------------------------------------------------
-
-            if (!data || data.success !== true) {
-
-                throw new Error(
-                    data?.error ||
-                    "لم يتم تأكيد حذف الحساب."
-                );
-            }
+            await delay(700);
 
             updateStep(
                 "stepAuthDelete",
@@ -942,22 +1322,9 @@
 
             updateProgress(100);
 
-            setLoadingText(
-                "تم الحذف بنجاح",
-                "جارٍ تجهيز رسالة التأكيد..."
-            );
-
-            await delay(800);
-
-            // ----------------------------------------------------
-            // Clear local session
-            // ----------------------------------------------------
+            await delay(700);
 
             await supabaseClient.auth.signOut();
-
-            // ----------------------------------------------------
-            // Success
-            // ----------------------------------------------------
 
             showSection(
                 "successSection"
@@ -966,7 +1333,7 @@
         } catch (error) {
 
             console.error(
-                "Delete account error:",
+                "Delete error:",
                 error
             );
 
@@ -976,9 +1343,7 @@
 
             showError(
                 "deleteError",
-                translateError(
-                    error.message
-                )
+                translateError(error.message)
             );
 
         } finally {
@@ -990,31 +1355,29 @@
 
 
     // ============================================================
-    // Loading UI
+    // CANCEL
     // ============================================================
 
-    function setLoadingText(
-        title,
-        description
-    ) {
+    async function cancelDelete() {
 
-        document
-            .getElementById("loadingTitle")
-            .textContent = title;
+        await supabaseClient.auth.signOut();
 
-        document
-            .getElementById("loadingDescription")
-            .textContent =
-                description;
+        showSection(
+            "loginSection"
+        );
     }
 
 
+    // ============================================================
+    // UI HELPERS
+    // ============================================================
+
     function updateProgress(value) {
 
-        document
-            .getElementById("progressBar")
-            .style.width =
-                `${value}%`;
+        document.getElementById(
+            "progressBar"
+        ).style.width =
+            `${value}%`;
     }
 
 
@@ -1024,27 +1387,63 @@
         icon
     ) {
 
-        const step =
+        const element =
             document.getElementById(id);
 
-        step.classList.remove(
+        element.classList.remove(
             "active",
             "done"
         );
 
-        if (state) {
-            step.classList.add(state);
-        }
+        element.classList.add(
+            state
+        );
 
-        const iconElement =
-            step.querySelector(
-                ".step-icon"
-            );
+        element.querySelector(
+            ".step-icon"
+        ).textContent =
+            icon;
+    }
 
-        if (iconElement) {
-            iconElement.textContent =
-                icon;
-        }
+
+    function setLoadingText(
+        title,
+        description
+    ) {
+
+        document.getElementById(
+            "loadingTitle"
+        ).textContent =
+            title;
+
+        document.getElementById(
+            "loadingDescription"
+        ).textContent =
+            description;
+    }
+
+
+    function showError(
+        id,
+        message
+    ) {
+
+        const element =
+            document.getElementById(id);
+
+        element.textContent =
+            message;
+
+        element.style.display =
+            "block";
+    }
+
+
+    function hideError(id) {
+
+        document.getElementById(id)
+            .style.display =
+            "none";
     }
 
 
@@ -1060,13 +1459,7 @@
     }
 
 
-    // ============================================================
-    // Error Translation
-    // ============================================================
-
-    function translateError(
-        message
-    ) {
+    function translateError(message) {
 
         if (!message) {
             return "حدث خطأ غير متوقع.";
@@ -1080,8 +1473,7 @@
                 "invalid login credentials"
             )
         ) {
-
-            return "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+            return "بيانات تسجيل الدخول غير صحيحة.";
         }
 
         if (
@@ -1089,17 +1481,29 @@
                 "email not confirmed"
             )
         ) {
-
-            return "يرجى تأكيد بريدك الإلكتروني أولاً.";
+            return "يرجى تأكيد البريد الإلكتروني أولاً.";
         }
 
         if (
             text.includes(
-                "session"
+                "phone"
+            ) &&
+            text.includes(
+                "not"
             )
         ) {
+            return "تعذر التحقق من رقم الهاتف.";
+        }
 
-            return "انتهت جلسة تسجيل الدخول. يرجى المحاولة مرة أخرى.";
+        if (
+            text.includes(
+                "otp"
+            ) ||
+            text.includes(
+                "token"
+            )
+        ) {
+            return "رمز التحقق غير صحيح أو منتهي الصلاحية.";
         }
 
         return message;
@@ -1107,7 +1511,7 @@
 
 
     // ============================================================
-    // Initial session check
+    // GOOGLE REDIRECT RESULT
     // ============================================================
 
     window.addEventListener(
@@ -1134,7 +1538,6 @@
             } catch (error) {
 
                 console.error(
-                    "Session check error:",
                     error
                 );
             }
