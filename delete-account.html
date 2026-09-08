@@ -2,133 +2,1145 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حذف الحساب والبيانات - تطبيق وين (Wain)</title>
-    <!-- خط تجوال الحديث -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- مكتبة Supabase الرسمية عبر CDN -->
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>حذف حسابك - وين</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
-        :root {
-            --primary: #0F172A;
-            --danger: #EF4444;
-            --accent: #F97316;
-            --bg: #F8FAFC;
-            --card: #FFFFFF;
-            --text: #1E293B;
-            --text-sec: #64748B;
-            --border: #E2E8F0;
+        * {
+            box-sizing: border-box;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
-        body { background: var(--bg); color: var(--text); padding: 24px 16px; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; max-width: 520px; width: 100%; padding: 32px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
-        .logo-box { text-align: center; margin-bottom: 24px; }
-        .logo-title { font-size: 26px; font-weight: 800; color: var(--primary); }
-        .logo-sub { color: var(--text-sec); font-size: 14px; margin-top: 6px; }
-        .warning-box { background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 12px; padding: 14px; color: #991B1B; font-size: 13px; margin-bottom: 24px; line-height: 1.6; }
-        .form-group { margin-bottom: 18px; }
-        label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
-        input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; outline: none; transition: border-color 0.2s; }
-        input:focus { border-color: var(--accent); }
-        .btn-delete { width: 100%; background: var(--danger); color: white; border: none; padding: 14px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
-        .btn-delete:hover { opacity: 0.9; }
-        .btn-delete:disabled { opacity: 0.5; cursor: not-allowed; }
-        .status-msg { margin-top: 18px; padding: 12px; border-radius: 10px; font-size: 14px; text-align: center; display: none; }
-        .status-success { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
-        .status-error { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+
+        body {
+            margin: 0;
+            font-family:
+                "Segoe UI",
+                Tahoma,
+                Arial,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #061a36 0%,
+                    #0b2d57 55%,
+                    #123f70 100%
+                );
+
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #172033;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 460px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 30px 25px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 15px;
+
+            border-radius: 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #0b2d57;
+            color: #ff9f1c;
+
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 8px;
+            color: #0b2d57;
+            font-size: 25px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #667085;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .warning {
+            background: #fff4f4;
+            border: 1px solid #ffd4d4;
+            color: #a32929;
+
+            border-radius: 16px;
+            padding: 15px;
+
+            font-size: 14px;
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+        }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+
+            border: 1px solid #d9dee7;
+            border-radius: 13px;
+
+            font-size: 15px;
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #0b2d57;
+            box-shadow:
+                0 0 0 3px rgba(11, 45, 87, 0.08);
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 14px;
+
+            padding: 15px;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .login-btn {
+            background: #0b2d57;
+            color: white;
+        }
+
+        .login-btn:hover:not(:disabled) {
+            background: #092447;
+        }
+
+        .delete-btn {
+            background: #d92d20;
+            color: white;
+        }
+
+        .delete-btn:hover:not(:disabled) {
+            background: #b42318;
+        }
+
+        .cancel-btn {
+            margin-top: 10px;
+            background: #f2f4f7;
+            color: #344054;
+        }
+
+        .message {
+            display: none;
+            margin-top: 15px;
+
+            border-radius: 13px;
+            padding: 13px;
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .error {
+            background: #fff1f0;
+            color: #b42318;
+            border: 1px solid #fecdca;
+        }
+
+        .success {
+            background: #ecfdf3;
+            color: #027a48;
+            border: 1px solid #abefc6;
+        }
+
+        /* Confirmation */
+
+        #confirmSection,
+        #loadingSection,
+        #successSection {
+            display: none;
+        }
+
+        .confirm-icon,
+        .success-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 32px;
+        }
+
+        .confirm-icon {
+            background: #fff1f0;
+            color: #d92d20;
+        }
+
+        .success-icon {
+            background: #ecfdf3;
+            color: #039855;
+        }
+
+        .confirm-text {
+            text-align: center;
+            color: #475467;
+            font-size: 14px;
+            line-height: 1.9;
+
+            margin-bottom: 20px;
+        }
+
+        /* Loading */
+
+        .loading-title {
+            text-align: center;
+            color: #0b2d57;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .loading-description {
+            text-align: center;
+            color: #667085;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .spinner {
+            width: 58px;
+            height: 58px;
+
+            margin: 0 auto 20px;
+
+            border: 5px solid #e5e7eb;
+            border-top-color: #ff9f1c;
+
+            border-radius: 50%;
+
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .progress {
+            background: #f2f4f7;
+            height: 8px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 10%;
+            height: 100%;
+            background: #ff9f1c;
+            border-radius: 20px;
+
+            transition:
+                width 0.5s ease;
+        }
+
+        .steps {
+            margin-top: 10px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 9px 0;
+
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .step.active {
+            color: #0b2d57;
+            font-weight: 600;
+        }
+
+        .step.done {
+            color: #039855;
+        }
+
+        .step-icon {
+            width: 24px;
+            height: 24px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #f2f4f7;
+
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .step.active .step-icon {
+            background: #fff4e5;
+            color: #ff9f1c;
+        }
+
+        .step.done .step-icon {
+            background: #ecfdf3;
+            color: #039855;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 18px;
+
+            color: rgba(255,255,255,0.75);
+            font-size: 12px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
+
 <body>
 
-<div class="card">
-    <div class="logo-box">
-        <div class="logo-title">تطبيق وين | WAIN</div>
-        <div class="logo-sub">بوابة طلب حذف الحساب والبيانات الشخصية</div>
+<div class="container">
+
+    <div class="card">
+
+        <!-- ================================================= -->
+        <!-- LOGIN -->
+        <!-- ================================================= -->
+
+        <section id="loginSection">
+
+            <div class="logo">
+                و
+            </div>
+
+            <h1>حذف حساب وين</h1>
+
+            <div class="subtitle">
+                استخدم بيانات تسجيل الدخول الخاصة بحسابك
+                للمتابعة إلى عملية حذف الحساب.
+            </div>
+
+            <div class="warning">
+                <strong>تنبيه:</strong>
+                حذف الحساب عملية نهائية ولا يمكن التراجع عنها.
+                سيتم حذف بيانات حسابك والعقارات والمفضلة
+                والمراسلات والطلبات والبيانات المرتبطة بحسابك.
+            </div>
+
+            <div class="field">
+                <label for="email">
+                    البريد الإلكتروني
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="example@email.com"
+                >
+            </div>
+
+            <div class="field">
+                <label for="password">
+                    كلمة المرور
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="أدخل كلمة المرور"
+                >
+            </div>
+
+            <button
+                id="loginBtn"
+                class="login-btn"
+                onclick="login()"
+            >
+                تسجيل الدخول والمتابعة
+            </button>
+
+            <div
+                id="loginError"
+                class="message error"
+            ></div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CONFIRMATION -->
+        <!-- ================================================= -->
+
+        <section id="confirmSection">
+
+            <div class="confirm-icon">
+                !
+            </div>
+
+            <h1>
+                هل أنت متأكد؟
+            </h1>
+
+            <div class="confirm-text">
+
+                سيتم حذف حسابك نهائيًا من وين.
+
+                <br><br>
+
+                سيتم حذف بياناتك الشخصية والعقارات
+                والمفضلة والطلبات والمراسلات
+                والأجهزة المرتبطة بالحساب.
+
+                <br><br>
+
+                <strong>
+                    لا يمكن التراجع عن هذه العملية بعد تنفيذها.
+                </strong>
+
+            </div>
+
+            <button
+                id="deleteBtn"
+                class="delete-btn"
+                onclick="deleteAccount()"
+            >
+                تأكيد وحذف الحساب نهائيًا
+            </button>
+
+            <button
+                id="cancelBtn"
+                class="cancel-btn"
+                onclick="cancelDelete()"
+            >
+                إلغاء
+            </button>
+
+            <div
+                id="deleteError"
+                class="message error"
+            ></div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- LOADING -->
+        <!-- ================================================= -->
+
+        <section id="loadingSection">
+
+            <div class="spinner"></div>
+
+            <div
+                id="loadingTitle"
+                class="loading-title"
+            >
+                جارٍ حذف الحساب
+            </div>
+
+            <div
+                id="loadingDescription"
+                class="loading-description"
+            >
+                يرجى الانتظار وعدم إغلاق الصفحة.
+            </div>
+
+            <div class="progress">
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                ></div>
+            </div>
+
+            <div class="steps">
+
+                <div
+                    id="stepAuth"
+                    class="step active"
+                >
+                    <div class="step-icon">
+                        ...
+                    </div>
+
+                    <span>
+                        التحقق من الحساب
+                    </span>
+                </div>
+
+
+                <div
+                    id="stepData"
+                    class="step"
+                >
+                    <div class="step-icon">
+                        2
+                    </div>
+
+                    <span>
+                        حذف بيانات الحساب
+                    </span>
+                </div>
+
+
+                <div
+                    id="stepProperties"
+                    class="step"
+                >
+                    <div class="step-icon">
+                        3
+                    </div>
+
+                    <span>
+                        حذف العقارات والبيانات المرتبطة
+                    </span>
+                </div>
+
+
+                <div
+                    id="stepAuthDelete"
+                    class="step"
+                >
+                    <div class="step-icon">
+                        4
+                    </div>
+
+                    <span>
+                        حذف حساب الدخول نهائيًا
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- SUCCESS -->
+        <!-- ================================================= -->
+
+        <section id="successSection">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h1>
+                تم حذف الحساب
+            </h1>
+
+            <div class="confirm-text">
+
+                تم حذف حسابك وجميع بياناتك
+                من نظام وين بنجاح.
+
+                <br><br>
+
+                لم يعد بالإمكان تسجيل الدخول
+                باستخدام هذا الحساب.
+
+            </div>
+
+            <div class="message success" style="display:block;">
+                تم تنفيذ طلب حذف الحساب بنجاح.
+            </div>
+
+        </section>
+
     </div>
 
-    <div class="warning-box">
-        ⚠️ <strong>تنبيه هام:</strong> سيؤدي تأكيد الحذف إلى مسح ملفك الشخصي، جميع إعلاناتك، المحادثات، والإشعارات بشكل نهائي ولا يمكن التراجع عن هذه العملية.
+    <div class="footer">
+        © وين Wain — منصة العقارات
     </div>
 
-    <form id="deleteAccountForm">
-        <div class="form-group">
-            <label for="userEmail">البريد الإلكتروني المسجل:</label>
-            <input type="email" id="userEmail" required placeholder="example@domain.com">
-        </div>
-
-        <div class="form-group">
-            <label for="userPassword">كلمة المرور:</label>
-            <input type="password" id="userPassword" required placeholder="أدخل كلمة المرور لتأكيد ملكية الحساب">
-        </div>
-
-        <button type="submit" id="submitBtn" class="btn-delete">تأكيد وحذف الحساب نهائياً</button>
-    </form>
-
-    <div id="statusBox" class="status-msg"></div>
 </div>
 
+
 <script>
-    // إعدادات Supabase الخاصة بمشروع وين
-    const SUPABASE_URL = "https://mhbajeqzcwgkqrgtceac.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_ouDNoRcyPKhKmYYnMAoRSA_-Hg0ylUm";
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const form = document.getElementById('deleteAccountForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const statusBox = document.getElementById('statusBox');
+    // ============================================================
+    // Supabase Configuration
+    // ============================================================
 
-    function showStatus(message, isError = false) {
-        statusBox.style.display = 'block';
-        statusBox.className = 'status-msg ' + (isError ? 'status-error' : 'status-success');
-        statusBox.innerHTML = message;
+    const SUPABASE_URL =
+        "https://mhbajeqzcwgkqrgtceac.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+        "sb_publishable_ouDNoRcyPKhKmYYnMAoRSA_-Hg0ylUm";
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+
+
+    // ============================================================
+    // UI Helpers
+    // ============================================================
+
+    function showSection(id) {
+
+        const sections = [
+            "loginSection",
+            "confirmSection",
+            "loadingSection",
+            "successSection"
+        ];
+
+        sections.forEach(section => {
+
+            document
+                .getElementById(section)
+                .style.display =
+                    section === id
+                        ? "block"
+                        : "none";
+        });
     }
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const email = document.getElementById('userEmail').value.trim().toLowerCase();
-        const password = document.getElementById('userPassword').value;
 
-        if (!confirm("هل أنت متأكد تماماً من رغبتك في حذف حسابك وكافة بياناتك؟")) {
+    function showError(id, message) {
+
+        const element =
+            document.getElementById(id);
+
+        element.textContent = message;
+        element.style.display = "block";
+    }
+
+
+    function hideError(id) {
+
+        document
+            .getElementById(id)
+            .style.display = "none";
+    }
+
+
+    // ============================================================
+    // Login
+    // ============================================================
+
+    async function login() {
+
+        hideError("loginError");
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+        const button =
+            document.getElementById("loginBtn");
+
+        if (!email) {
+
+            showError(
+                "loginError",
+                "يرجى إدخال البريد الإلكتروني."
+            );
+
             return;
         }
 
-        submitBtn.disabled = true;
-        submitBtn.innerText = "جاري التحقق وحذف البيانات...";
-        statusBox.style.display = 'none';
+        if (!password) {
+
+            showError(
+                "loginError",
+                "يرجى إدخال كلمة المرور."
+            );
+
+            return;
+        }
+
+        button.disabled = true;
+        button.textContent =
+            "جارٍ تسجيل الدخول...";
 
         try {
-            // 1. التحقق من الحساب وتسجيل الدخول
-            const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-                email: email,
-                password: password
-            });
 
-            if (authError || !authData.user) {
-                throw new Error("بيانات الدخول غير صحيحة أو الحساب غير موجود. يرجى التأكد والمحاولة ثانية.");
+            const {
+                data,
+                error
+            } =
+                await supabaseClient.auth
+                    .signInWithPassword({
+                        email: email,
+                        password: password
+                    });
+
+            if (error) {
+                throw error;
             }
 
-            const userId = authData.user.id;
+            if (!data.session) {
 
-            // 2. حذف البيانات المرتبطة بالمستخدم في الجداول
-            await supabase.from('favorites').delete().eq('user_id', userId);
-            await supabase.from('notifications').delete().eq('user_id', userId);
-            await supabase.from('user_devices').delete().eq('user_id', userId);
-            await supabase.from('properties').delete().eq('owner_id', userId);
-            await supabase.from('users').delete().eq('user_id', userId);
+                throw new Error(
+                    "تعذر إنشاء جلسة تسجيل الدخول."
+                );
+            }
 
-            // 3. استدعاء إجراء حذف الحساب وتسجيل الخروج
-            await supabase.auth.signOut();
+            showSection("confirmSection");
 
-            showStatus("✅ تم حذف حسابك وكافة بياناتك بنجاح من قاعدة البيانات.", false);
-            form.style.display = 'none';
+        } catch (error) {
 
-        } catch (err) {
-            showStatus(err.message || "حدث خطأ أثناء محاولة حذف الحساب.", true);
-            submitBtn.disabled = false;
-            submitBtn.innerText = "تأكيد وحذف الحساب نهائياً";
+            console.error(
+                "Login error:",
+                error
+            );
+
+            showError(
+                "loginError",
+                translateError(
+                    error.message
+                )
+            );
+
+        } finally {
+
+            button.disabled = false;
+
+            button.textContent =
+                "تسجيل الدخول والمتابعة";
         }
-    });
+    }
+
+
+    // ============================================================
+    // Cancel
+    // ============================================================
+
+    async function cancelDelete() {
+
+        await supabaseClient.auth.signOut();
+
+        showSection("loginSection");
+    }
+
+
+    // ============================================================
+    // Delete Account
+    // ============================================================
+
+    async function deleteAccount() {
+
+        hideError("deleteError");
+
+        const deleteButton =
+            document.getElementById("deleteBtn");
+
+        const cancelButton =
+            document.getElementById("cancelBtn");
+
+        deleteButton.disabled = true;
+        cancelButton.disabled = true;
+
+        showSection("loadingSection");
+
+        updateStep(
+            "stepAuth",
+            "active",
+            "جارٍ التحقق"
+        );
+
+        updateProgress(15);
+
+        try {
+
+            // ----------------------------------------------------
+            // Get current session
+            // ----------------------------------------------------
+
+            const {
+                data: {
+                    session
+                }
+            } =
+                await supabaseClient.auth
+                    .getSession();
+
+            if (!session) {
+
+                throw new Error(
+                    "انتهت جلسة تسجيل الدخول. يرجى تسجيل الدخول مرة أخرى."
+                );
+            }
+
+            updateStep(
+                "stepAuth",
+                "done",
+                "✓"
+            );
+
+            updateStep(
+                "stepData",
+                "active",
+                "..."
+            );
+
+            updateProgress(35);
+
+            setLoadingText(
+                "جارٍ حذف بيانات الحساب",
+                "يتم حذف البيانات الشخصية والطلبات والمفضلة والمراسلات."
+            );
+
+            // ----------------------------------------------------
+            // Call Edge Function
+            // ----------------------------------------------------
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient.functions
+                    .invoke(
+                        "delete-account",
+                        {
+                            method: "POST",
+                            headers: {
+                                Authorization:
+                                    `Bearer ${session.access_token}`
+                            },
+                            body: {}
+                        }
+                    );
+
+            if (error) {
+
+                console.error(
+                    "Edge Function error:",
+                    error
+                );
+
+                throw new Error(
+                    error.message ||
+                    "تعذر تنفيذ عملية حذف الحساب."
+                );
+            }
+
+            // ----------------------------------------------------
+            // Data deleted
+            // ----------------------------------------------------
+
+            updateStep(
+                "stepData",
+                "done",
+                "✓"
+            );
+
+            updateStep(
+                "stepProperties",
+                "done",
+                "✓"
+            );
+
+            updateProgress(75);
+
+            setLoadingText(
+                "جارٍ إنهاء حذف الحساب",
+                "يتم حذف حساب تسجيل الدخول نهائيًا."
+            );
+
+            updateStep(
+                "stepAuthDelete",
+                "active",
+                "..."
+            );
+
+            await delay(800);
+
+            // ----------------------------------------------------
+            // Validate server response
+            // ----------------------------------------------------
+
+            if (!data || data.success !== true) {
+
+                throw new Error(
+                    data?.error ||
+                    "لم يتم تأكيد حذف الحساب."
+                );
+            }
+
+            updateStep(
+                "stepAuthDelete",
+                "done",
+                "✓"
+            );
+
+            updateProgress(100);
+
+            setLoadingText(
+                "تم الحذف بنجاح",
+                "جارٍ تجهيز رسالة التأكيد..."
+            );
+
+            await delay(800);
+
+            // ----------------------------------------------------
+            // Clear local session
+            // ----------------------------------------------------
+
+            await supabaseClient.auth.signOut();
+
+            // ----------------------------------------------------
+            // Success
+            // ----------------------------------------------------
+
+            showSection(
+                "successSection"
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Delete account error:",
+                error
+            );
+
+            showSection(
+                "confirmSection"
+            );
+
+            showError(
+                "deleteError",
+                translateError(
+                    error.message
+                )
+            );
+
+        } finally {
+
+            deleteButton.disabled = false;
+            cancelButton.disabled = false;
+        }
+    }
+
+
+    // ============================================================
+    // Loading UI
+    // ============================================================
+
+    function setLoadingText(
+        title,
+        description
+    ) {
+
+        document
+            .getElementById("loadingTitle")
+            .textContent = title;
+
+        document
+            .getElementById("loadingDescription")
+            .textContent =
+                description;
+    }
+
+
+    function updateProgress(value) {
+
+        document
+            .getElementById("progressBar")
+            .style.width =
+                `${value}%`;
+    }
+
+
+    function updateStep(
+        id,
+        state,
+        icon
+    ) {
+
+        const step =
+            document.getElementById(id);
+
+        step.classList.remove(
+            "active",
+            "done"
+        );
+
+        if (state) {
+            step.classList.add(state);
+        }
+
+        const iconElement =
+            step.querySelector(
+                ".step-icon"
+            );
+
+        if (iconElement) {
+            iconElement.textContent =
+                icon;
+        }
+    }
+
+
+    function delay(ms) {
+
+        return new Promise(
+            resolve =>
+                setTimeout(
+                    resolve,
+                    ms
+                )
+        );
+    }
+
+
+    // ============================================================
+    // Error Translation
+    // ============================================================
+
+    function translateError(
+        message
+    ) {
+
+        if (!message) {
+            return "حدث خطأ غير متوقع.";
+        }
+
+        const text =
+            message.toLowerCase();
+
+        if (
+            text.includes(
+                "invalid login credentials"
+            )
+        ) {
+
+            return "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+        }
+
+        if (
+            text.includes(
+                "email not confirmed"
+            )
+        ) {
+
+            return "يرجى تأكيد بريدك الإلكتروني أولاً.";
+        }
+
+        if (
+            text.includes(
+                "session"
+            )
+        ) {
+
+            return "انتهت جلسة تسجيل الدخول. يرجى المحاولة مرة أخرى.";
+        }
+
+        return message;
+    }
+
+
+    // ============================================================
+    // Initial session check
+    // ============================================================
+
+    window.addEventListener(
+        "load",
+        async () => {
+
+            try {
+
+                const {
+                    data: {
+                        session
+                    }
+                } =
+                    await supabaseClient.auth
+                        .getSession();
+
+                if (session) {
+
+                    showSection(
+                        "confirmSection"
+                    );
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Session check error:",
+                    error
+                );
+            }
+        }
+    );
+
 </script>
 
 </body>
